@@ -3,22 +3,47 @@ const bcriptjs = require('bcryptjs')
 //const { request } = require('http');
 const User = require('../models/users');
 
-  const usersGet = (req, res = response) => {
+  const usersGet = async(req = request, res = response) => {
 
-    const query = req.query;
+    //const query = req.query;
+    const { limite = 5 , desde = 0 } = req.query;
+    const query = {estado : true}
+
+    // const user = await User.find( query )
+    //   .skip(Number(desde))
+    //   .limit(Number(limite));
+
+    // const total = await User.countDocuments(query);
+
+    const [total, users] = await Promise.all([
+      User.countDocuments(query),
+      User.find( query )
+      .skip(Number(desde))
+      .limit(Number(limite))
+    ])
 
     //res.send('Hello World')
     //res.status(403).json({
     res.json({
+        //resp,
+
         //ok:true,
-        msg:'get Api - Controlador'
+        //msg:'get Api - Controlador',
+        total,
+        users,
+        
+        // q,
+        // nombre,
+        // apikey,
+        // page,
+        // limit
     });
   }
 
   const usersPut = async (req, res = response) => {
 
     const { id } = req.params;
-    const { id, password, google, correo, ...resto } = req.body;
+    const { _id, password, google, correo, ...resto } = req.body;
 
     //TODO validar base de datos
     if (password) {
@@ -63,12 +88,18 @@ const User = require('../models/users');
         });
   }
 
-  const usersDelete = (req, res = response) => {
+  const usersDelete = async(req, res = response) => {
+
+    const { id } = req.params;
+
+    //Forma de Eliminar completamente un registro - No recomendado
+    const user = await User.findByIdAndDelete(id);
     //res.send('Hello World')
     //res.status(403).json({
     res.json({
         //ok:true,
-        msg:'get Api - Controlador'
+        //msg:'get Api - Controlador',
+        user
     });
   }
 
