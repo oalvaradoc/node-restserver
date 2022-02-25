@@ -93,7 +93,11 @@ const User = require('../models/users');
     const { id } = req.params;
 
     //Forma de Eliminar completamente un registro - No recomendado
-    const user = await User.findByIdAndDelete(id);
+    //const user = await User.findByIdAndDelete(id);
+
+    //Forma recomendada
+    const user = await User.findByIdAndUpdate(id, {estado:false});
+
     //res.send('Hello World')
     //res.status(403).json({
     res.json({
