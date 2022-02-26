@@ -24,3 +24,6 @@ heroku config:set nombre="Omar Alvarado"
 6. Borrar una nueva variable de entorno 
 
 heroku config:unset nombre
+
+
+heroku config:set SECRETOPPRIVATEKEY="Est0sMyPubl1cKe1@."
