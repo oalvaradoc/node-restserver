@@ -25,5 +25,6 @@ heroku config:set nombre="Omar Alvarado"
 
 heroku config:unset nombre
 
-
-heroku config:set SECRETOPPRIVATEKEY="Est0sMyPubl1cKe1@."
+7. Ver terminal del produccion con los logs
+    7.1 heroku logs -n 100 [Ultimos 100 Logs]
+    7.2 heroku logs -n tail [Todos los Logs]
