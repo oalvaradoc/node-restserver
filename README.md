@@ -7,7 +7,7 @@ npm install para instalar las llibrerias
 
 2. Publicar 
 
-git push heroku main
+git push heroku main [Se tiene que especificar la rama]
 
 3. Quitar el segumiento de un documento en git
 
@@ -27,4 +27,7 @@ heroku config:unset nombre
 
 7. Ver terminal del produccion con los logs
     7.1 heroku logs -n 100 [Ultimos 100 Logs]
-    7.2 heroku logs -n tail [Todos los Logs]
+    7.2 heroku logs -n 100 --tail [Todos los Logs]
+
+8. Client Id de Google
+53753187363-s2tiisbbargoo1bguc6650okj2l9lj13.apps.googleusercontent.com
