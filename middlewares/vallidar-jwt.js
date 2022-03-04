@@ -32,7 +32,7 @@ const validarJwt = async(req = request, res = response, next) => {
             })
         }
 
-        req.uid = user;
+        req.user = user;
         next()
         
     } catch (error) {
