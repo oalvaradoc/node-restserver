@@ -47,6 +47,7 @@ const { Categoria } = require('../models');
     })
 
   }
+
   const eliminarCategoria = async(req, res = response) => {
 
     const { id } = req.params;
@@ -57,7 +58,6 @@ const { Categoria } = require('../models');
     })
 
   }
-
 
   const crearCategoria = async(req, res = response) => {
 
